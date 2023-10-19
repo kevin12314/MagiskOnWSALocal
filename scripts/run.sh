@@ -70,6 +70,7 @@ RELEASE_TYPE=$(
     Radiolist '([title]="WSA release type"
                 [default]="retail")' \
         'retail' "Stable Channel" 'on' \
+        'latest' "WSA Preview Program Channe" 'off' \
         'release preview' "Release Preview Channel" 'off' \
         'insider slow' "Beta Channel" 'off' \
         'insider fast' "Dev Channel" 'off'
@@ -155,7 +156,7 @@ if [ "$COMPRESS_OUTPUT" = "--compress" ]; then
 fi
 
 clear
-declare -A RELEASE_TYPE_MAP=(["retail"]="retail" ["release preview"]="RP" ["insider slow"]="WIS" ["insider fast"]="WIF")
+declare -A RELEASE_TYPE_MAP=(["retail"]="retail" ["latest"]="latest" ["release preview"]="RP" ["insider slow"]="WIS" ["insider fast"]="WIF")
 COMMAND_LINE=(--arch "$ARCH" --release-type "${RELEASE_TYPE_MAP[$RELEASE_TYPE]}" --root-sol "$ROOT_SOL" --gapps-brand "$GAPPS_BRAND")
 CHECK_NULL_LIST=("$REMOVE_AMAZON" "$COMPRESS_OUTPUT" "$OFFLINE" "$DEBUG" "$CUSTOM_MAGISK")
 for i in "${CHECK_NULL_LIST[@]}"; do
